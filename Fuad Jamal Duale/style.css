@@ -1,11 +1,9 @@
-/* Modern CSS Reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Custom Properties */
 :root {
   --color-primary: #2c3e50;
   --color-secondary: #34495e;
@@ -16,7 +14,6 @@
   --transition: all 0.3s ease;
 }
 
-/* Base Styles */
 body {
   font-family: var(--font-main);
   line-height: 1.6;
@@ -160,36 +157,63 @@ section {
 }
 
 /* Skills Section */
+/* Skills Section */
 .skills {
   background-color: var(--color-background);
   padding: 4rem 0;
-}
-
-.skills ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  padding: 0;
-  list-style-type: none;
-}
-
-.skills li {
-  background-color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: var(--transition);
+  overflow: hidden;
 }
 
-.skills li:hover {
-  transform: translateY(-5px);
+.skills h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--color-heading);
 }
 
-.skills i {
+/* Horizontal Scroll Container */
+.skills-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding: 1rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scroll bar */
+.skills-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.skill-item {
+  min-width: 180px;
+  max-width: 200px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.skill-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.skill-item i {
   font-size: 2.5rem;
   color: var(--color-accent);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-item p {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin: 0;
 }
 
 /* Contact Section */
